@@ -40,5 +40,4 @@ def generate_urls(version=2, file_path="../data/onion_urls.txt"):
 
 
 if __name__ == "__main__":
-    # Test run
     generate_urls()

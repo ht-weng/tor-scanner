@@ -61,7 +61,7 @@ def ping_onions(urls_file="../data/onion_urls.txt", results_file="../data/active
             print(url, " Status: ", status)
 
 def scan_ports(urls_file="../data/active_onion_urls.txt", results_file="../data/onions_ports.csv"):
-    """Scan ports of Onion URLs and write results to a f = open('myfile.txt', 'x')
+    """Scan ports of Onion URLs and write results to a file
 
     Args:
         urls_file (str, optional): The list of active Onion URLs to scan. Defaults to "../data/active_onion_urls.txt".
@@ -96,6 +96,5 @@ def scan_ports(urls_file="../data/active_onion_urls.txt", results_file="../data/
 
 
 if __name__ == "__main__":
-    # Test run
     ping_onions()
     scan_ports()
