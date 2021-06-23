@@ -2,7 +2,7 @@
 @author Haotian Weng
 @email haotian.weng@anu.edu.au
 @create date 2021-06-22
-@modify date 2021-06-22
+@modify date 2021-06-24
 @desc Ping and scan ports of unique Onion URLs
 """
 
@@ -29,7 +29,7 @@ PORTS = [
 ]
 
 
-def ping_onions(urls_file="../data/onion_urls.txt", results_file="../data/active_onion_urls.txt"):
+def ping_onions(urls_file, results_file):
     """Ping Onion URLs and write active URLs to a file
 
     Args:
@@ -44,6 +44,7 @@ def ping_onions(urls_file="../data/onion_urls.txt", results_file="../data/active
             # Use proxychains as the Tor proxy
             # Scan port 80 with nmap
             # Since port 80 is the common port, use it as the indicator of the status
+            print("Ping ", url)
             ping_result = subprocess.Popen(
                 ["proxychains4", "-q", "nmap", "-oG", "-", "-p", "80", url],
                 stdout=subprocess.PIPE,
@@ -58,9 +59,9 @@ def ping_onions(urls_file="../data/onion_urls.txt", results_file="../data/active
                 results_list.write("\n")
             else:
                 status = "Down"
-            print(url, " Status: ", status)
+            print("Status of ", url, " : ", status)
 
-def scan_ports(urls_file="../data/active_onion_urls.txt", results_file="../data/onions_ports.csv"):
+def scan_ports(urls_file, results_file):
     """Scan ports of Onion URLs and write results to a file
 
     Args:
@@ -93,8 +94,3 @@ def scan_ports(urls_file="../data/active_onion_urls.txt", results_file="../data/
             line_to_write = [url] + port_status
             results_csv.write(",".join(line_to_write))
             results_csv.write("\n")
-
-
-if __name__ == "__main__":
-    ping_onions()
-    scan_ports()
