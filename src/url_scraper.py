@@ -2,7 +2,7 @@
 @author Haotian Weng
 @email haotian.weng@anu.edu.au
 @create date 2021-06-22
-@modify date 2021-06-22
+@modify date 2021-06-24
 @desc Scrape Onion URLs from ahmia search engine
 """
 
@@ -12,12 +12,14 @@ from bs4 import BeautifulSoup
 URL = "https://ahmia.fi/address/"
 
 
-def scrape_urls(file_path="../data/onion_urls.txt"):
+def scrape_urls(file_path):
     """Scrape Onion URLs from ahmia search engine
 
     Args:
         file_path (str, optional): The list of scraped Onion URLs. Defaults to "../data/onion_urls.txt".
     """
+    
+    print("Scraping Onion addresses on ahmia.fi")
     # Get html from ahmia
     r = requests.get(URL)
     # Parse html
@@ -34,7 +36,4 @@ def scrape_urls(file_path="../data/onion_urls.txt"):
             # Check whether it is an onion URL
             if ".onion" in u:
                 f.write(u + "\n")
-
-
-if __name__ == "__main__":
-    scrape_urls()
+    print("Scraping Complete")
