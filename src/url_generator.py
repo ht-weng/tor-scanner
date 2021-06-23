@@ -2,7 +2,7 @@
 @author Haotian Weng
 @email haotian.weng@anu.edu.au
 @create date 2021-06-19
-@modify date 2021-06-19
+@modify date 2021-06-24
 @desc Sequentially generate unique Onion URLs
 """
 
@@ -12,7 +12,7 @@ import itertools
 CHARS = "234567abcdefghijklmnopqrstuvwxyz"
 
 
-def generate_urls(version=2, file_path="../data/onion_urls.txt"):
+def generate_urls(version, file_path):
     """Sequentially generate unique Onion URLs and output them to a file.
         v2 Onion URLs are 16-character alpha-semi-numeric hashes.
         v3 Onion URLs are 56-character alpha-semi-numeric hashes.
@@ -36,8 +36,6 @@ def generate_urls(version=2, file_path="../data/onion_urls.txt"):
     with open(file_path, "wt+") as f:
         # Sequentially generate unique Onion URLs
         for c in itertools.product(CHARS, repeat=url_len):
-            f.write("".join(c) + ".onion" + "\n")
-
-
-if __name__ == "__main__":
-    generate_urls()
+            url = "".join(c) + ".onion"
+            print("New Onion URL: ", url)
+            f.write(url + "\n")
