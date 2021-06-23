@@ -10,15 +10,13 @@ Tested on Ubuntu 20.04.2.
 
 ### Install dependencies
 
-python3-nmap
-
-[proxychains](https://github.com/haad/proxychains)
+The main dependencies are [nmap](https://nmap.org/) and [proxychains](https://github.com/haad/proxychains).
 
 Install the dependencies using `make`.
 
 ```sh
 cd tor-scanner/
-make depend
+make install
 ```
 
 ### Run the scanner
