@@ -15,23 +15,19 @@ DATE=$(shell date +%Y-%m-%d)
 define HELP
 $(APP):
 	install	Install dependencies.
-	clean	Remove data.
-	generate	Sequentially generate unique Onion URLs.
-	run
-		scrape	Scrape Onion URLs from ahmia.fi.
-		ping	Ping Onion URLs and write active URLs to a file.
-		scan	Scan ports of active Onion URLs.
+	clean	Remove messy files.
 endef
 export HELP
+
+help::
+	@echo "$$HELP"
 
 .PHONY: install
 install:
 	sudo apt install nmap proxychains4
 	pip3 install bs4 requests
+	mkdir data
 
 .PHONY: clean
 clean:
-	rm data/*
-
-.PHONY: generate
-generate:
+	rm -rf src/__pycache__
