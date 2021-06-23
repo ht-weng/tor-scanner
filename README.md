@@ -1,8 +1,8 @@
 # Tor Scanner
 
-Tor Scanner is a tool that explores the Tor universe by scanning ports of Tor hidden services.
+Tor Scanner is a tool for exploring the Tor universe by scanning ports of Tor hidden services.
 
-It sequentially generates unique v2 or v3 Onion URLs and scans those addresses in order.
+It can sequentially generate unique v2 or v3 Onion URLs and scans those addresses in order.
 
 Tested on Ubuntu 20.04.2.
 
@@ -23,7 +23,16 @@ make install
 
 ```sh
 cd tor-scanner/
-python3 main.py 
+python3 main.py [arguments]
 ```
 
+Run `python3 main.py -h` to display the help info.
+
 The output files are in the `tor-scanner/data/` folder.
+
+### Clean the mess
+
+```sh
+cd tor-scanner/
+make clean
+```
