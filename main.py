@@ -30,7 +30,7 @@ def main():
     elif args.ping:
         scanner.ping_onions("data/onion_urls.txt", "data/active_onion_urls.txt")
     elif args.scan:
-        scanner.scan_ports("data/active_onion_urls.txt", "data/onions_ports.csv")
+        scanner.scan_ports("data/onion_urls.txt", "data/onions_ports.csv")
     else:
         raise Exception("Please supply an argument!")
 
