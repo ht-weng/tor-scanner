@@ -24,7 +24,7 @@ help::
 
 .PHONY: install
 install:
-	sudo apt install nmap proxychains4
+	sudo apt install nmap proxychains4 tor
 	pip3 install bs4 requests
 	mkdir data
 
