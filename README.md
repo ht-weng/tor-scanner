@@ -19,6 +19,10 @@ cd tor-scanner/
 make install
 ```
 
+### Adjust proxychains configuration
+
+Adjust timeout values in `/etc/proxychains4.conf`.
+
 ### Run the scanner
 
 ```sh
